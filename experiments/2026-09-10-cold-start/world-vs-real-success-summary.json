@@ -1,0 +1,70 @@
+{
+  "format": "push-world-vs-real-success-v1",
+  "world_eval_horizon": 75,
+  "world_uncertainty_limit": 0.75,
+  "world_dataset": "dataset-4000.json",
+  "real_eval_seed": 29000,
+  "episodes": 100,
+  "rows": [
+    {
+      "policy": "real PPO",
+      "episodes": 100,
+      "world_success_rate": 0.65,
+      "real_success_rate": 0.82,
+      "gap_pp": -17.0,
+      "true_positive": 56,
+      "false_positive": 9,
+      "false_negative": 26,
+      "world_uncertainty_guarded_episodes": 0,
+      "world_horizon_truncated_episodes": 25
+    },
+    {
+      "policy": "world-model fine-tuned",
+      "episodes": 100,
+      "world_success_rate": 0.69,
+      "real_success_rate": 0.57,
+      "gap_pp": 12.0,
+      "true_positive": 44,
+      "false_positive": 25,
+      "false_negative": 13,
+      "world_uncertainty_guarded_episodes": 15,
+      "world_horizon_truncated_episodes": 15
+    },
+    {
+      "policy": "short30 episode-start",
+      "episodes": 100,
+      "world_success_rate": 0.47,
+      "real_success_rate": 0.2,
+      "gap_pp": 27.0,
+      "true_positive": 17,
+      "false_positive": 30,
+      "false_negative": 3,
+      "world_uncertainty_guarded_episodes": 20,
+      "world_horizon_truncated_episodes": 34
+    },
+    {
+      "policy": "short30 replay-start",
+      "episodes": 100,
+      "world_success_rate": 0.68,
+      "real_success_rate": 0.38,
+      "gap_pp": 30.0,
+      "true_positive": 24,
+      "false_positive": 44,
+      "false_negative": 14,
+      "world_uncertainty_guarded_episodes": 2,
+      "world_horizon_truncated_episodes": 27
+    },
+    {
+      "policy": "short45 replay-start",
+      "episodes": 100,
+      "world_success_rate": 0.68,
+      "real_success_rate": 0.27,
+      "gap_pp": 41.0,
+      "true_positive": 22,
+      "false_positive": 46,
+      "false_negative": 5,
+      "world_uncertainty_guarded_episodes": 18,
+      "world_horizon_truncated_episodes": 13
+    }
+  ]
+}

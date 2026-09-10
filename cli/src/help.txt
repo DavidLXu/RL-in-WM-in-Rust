@@ -1,0 +1,59 @@
+RL-in-WM-in-Rust — two-joint pushing with learned state dynamics
+
+Usage: cargo run --release -p push-cli -- [STAGE] [OPTIONS]
+
+Stages (choose one; no stage flag starts real-environment PPO):
+  --algorithm ppo|sac  Train a new policy in the analytic simulator (default ppo)
+  --evaluate          Evaluate a saved PPO/SAC policy in the simulator
+  --collect-data      Record trajectories using a saved PPO/SAC policy
+  --train-world       Train an ensemble on an existing dataset
+  --compare-world     Export paired real/model trajectories under recorded actions
+  --evaluate-world    Evaluate a PPO policy using only learned transitions
+  --imagine           Train PPO inside a saved world model
+  --help, -h          Show help without starting training
+
+Real training / evaluation:
+  --updates N                    Training updates (real default 10; imagine 500)
+  --checkpoint PATH              Saved policy (default runs/ppo.json or runs/sac.json)
+  --metrics PATH                 Training metrics JSONL
+  --policy-checkpoint PATH       Input policy (default runs/ppo.json)
+  --episodes N                   Evaluation/collection episode count
+  --eval-seed N                  First real evaluation seed (default 80000)
+  --trajectory PATH              Real evaluation JSON (default runs/eval.json)
+
+Datasets / models:
+  --dataset PATH                 Dataset JSON (default runs/dataset.json)
+  --data-seed N                  First collection seed (default 9000)
+  --world-epochs N               Dynamics training epochs
+  --world-members N              Dynamics ensemble members
+  --world-checkpoint PATH        Output learned model (default runs/world-model.json)
+  --world-model PATH             Input model for compare/evaluate-world/imagine
+  --world-metrics PATH           Dynamics training metrics JSON
+  --comparison PATH              Paired comparison JSON
+  --world-horizon N              Model evaluation horizon (default 75)
+  --world-trajectory PATH        Model evaluation JSON
+
+Model PPO / imitation:
+  --mode cold-start|finetune      Default cold-start; finetune loads --init-policy
+  --init-policy PATH             PPO checkpoint for finetune
+  --imagine-seed N               Random policy initialization seed (default 777)
+  --policy-hidden N              Cold-start hidden width (default 32)
+  --rollout-steps N              Samples per lane/update (default 256)
+  --imagine-horizon N            Model reset horizon (default 75)
+  --imagine-starts episode-start|replay  Reset-state source (default episode-start)
+  --uncertainty-limit X          Truncate above ensemble disagreement (default 0.75)
+  --uncertainty-penalty X        Reward penalty coefficient (default 0)
+  --bc-epochs N                  Supervised action-label warm start (default 0)
+  --bc-samples N                 Maximum uniformly sampled BC transitions (default 50000)
+  --imagined-checkpoint PATH     Output PPO checkpoint
+
+Configuration:
+  --action position|joint-delta|absolute|velocity|acceleration
+  --obs GROUP,GROUP,...          Observation groups; see docs/configuration.md
+  PUSH_NUM_ENVS                  Environment lanes; defaults: real PPO CPUs-2,
+                                SAC 8, imagined PPO 4 (set explicitly for comparisons)
+  RAYON_NUM_THREADS              Rayon worker thread count
+
+Use the README for the separate five-stage workflow and reproducible commands.
+The legacy bare --world-model entry point still chains data collection/training;
+prefer the explicit stage flags above. Model success must be checked in --evaluate.

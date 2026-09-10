@@ -1,0 +1,11 @@
+[package]
+name = "push-bench"
+version.workspace = true
+edition.workspace = true
+repository.workspace = true
+publish.workspace = true
+description = "Physics and end-to-end PPO throughput benchmarks"
+
+[dependencies]
+push-env.workspace = true
+push-rl.workspace = true

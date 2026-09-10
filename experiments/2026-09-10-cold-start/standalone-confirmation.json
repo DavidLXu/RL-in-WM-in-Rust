@@ -1,0 +1,42 @@
+{
+  "format": "standalone-checkpoint-confirmation-v1",
+  "date": "2026-09-10",
+  "rows": [
+    {
+      "method": "real-ppo",
+      "checkpoint": "checkpoints/ppo-1000.json",
+      "checkpoint_sha256": "c496e689992417c15a8d8a288519d90fd454d7b8c8e2fc9c77d55ca920e7d87d",
+      "episodes": 1000,
+      "first_seed": 80000,
+      "last_seed": 80999,
+      "successes": 815,
+      "metrics": {
+        "episodes": 1000,
+        "mean_final_distance": 0.07613106071949005,
+        "mean_min_distance": 0.039209600538015366,
+        "mean_return": 129.1793212890625,
+        "mean_steps": 35.29100036621094,
+        "success_rate": 0.8149999976158142
+      },
+      "reproduces_previous_snapshot": true
+    },
+    {
+      "method": "bc-only",
+      "checkpoint": "checkpoints/bc20-seed1.json",
+      "checkpoint_sha256": "d973f947262612db3efeb0dc16528b9f17824e2f75497e9af690ca2a39921099",
+      "episodes": 1000,
+      "first_seed": 80000,
+      "last_seed": 80999,
+      "successes": 820,
+      "metrics": {
+        "episodes": 1000,
+        "mean_final_distance": 0.0725211352109909,
+        "mean_min_distance": 0.039218999445438385,
+        "mean_return": 130.0039825439453,
+        "mean_steps": 35.09700012207031,
+        "success_rate": 0.8199999928474426
+      },
+      "reproduces_previous_snapshot": true
+    }
+  ]
+}

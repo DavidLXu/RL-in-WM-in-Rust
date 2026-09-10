@@ -1,0 +1,10 @@
+[package]
+name = "push-env"
+version.workspace = true
+edition.workspace = true
+repository.workspace = true
+publish.workspace = true
+description = "Deterministic two-joint planar pushing simulator"
+
+[dependencies]
+serde.workspace = true

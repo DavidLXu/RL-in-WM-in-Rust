@@ -1,0 +1,22 @@
+trial,method,bc_epochs,hidden,updates,rollout_steps,horizon,starts,uncertainty_penalty,world_success_100,real_success_100,real_success_500,notes,mse30,real_success_1000
+baseline-random-cold,random PPO in world model,0,32,500,256,75,episode-start,0,0.82,0.0,,model exploitation; original cold-start,,
+short30-episode,stage-1 PPO fine-tuned with short model rollouts,0,32,500,30,30,episode-start,0,0.47,0.21,,retrained model on this policy data,0.432343,
+short30-replay,stage-1 PPO fine-tuned with short model rollouts,0,32,500,30,30,replay,0,0.68,0.35,,retrained model on this policy data,0.776382,
+short45-replay,stage-1 PPO fine-tuned with short model rollouts,0,32,500,45,45,replay,0,0.68,0.27,,retrained model not performed,,
+bc5-only,behavior cloning only,5,32,0,,,,0,0.49,0.23,,data-initialized cold-start,,
+bc10-only,behavior cloning only,10,32,0,,,,0,0.63,0.75,,,,
+bc15-only,behavior cloning only,15,32,0,,,,0,0.62,0.82,,,,
+bc20-only,behavior cloning only,20,32,0,,,,0,0.6,0.84,0.814,,,
+bc25-only,behavior cloning only,25,32,0,,,,0,0.64,0.81,,,,
+bc30-only,behavior cloning only,30,32,0,,,,0,0.7,0.78,,,,
+bc20-seed1,behavior cloning only,20,32,0,,,,0,0.65,0.86,0.828,best 100-episode run; 500-episode confirmation,,
+bc20-seed2,behavior cloning only,20,32,0,,,,0,,0.81,,,,
+bc20-seed3,behavior cloning only,20,32,0,,,,0,,0.78,,,,
+bc20-ppo50,BC then model PPO,20,32,50,256,75,replay,0,0.86,0.29,,,,
+bc20-ppo100-penalty1,BC then model PPO + uncertainty penalty,20,32,100,256,75,replay,1,0.89,0.11,,,,
+bc20-ppo500,BC then model PPO,20,32,500,256,75,replay,0,0.83,0.17,,,,
+bc20-ppo500-penalty3,BC then model PPO + uncertainty penalty,20,32,500,256,75,replay,3,0.92,0.34,,,,
+bc20-hidden64,behavior cloning only,20,64,0,,,,0,0.62,,0.832,,,
+bc20-all-data-seed1,behavior cloning only,20,32,0,,,,0,,,0.802,all 146761 transitions; seed1,,
+bc20-seed1-real1000,behavior cloning only,20,32,0,0,0,,0,,,,same checkpoint as bc20-seed1; confirmation on 1000 fixed-seed real episodes,,0.82
+ppo-baseline-real1000,stage-1 real PPO baseline,0,32,1000,0,0,,0,,,,reference checkpoint on same 1000 fixed-seed real episodes,,0.815

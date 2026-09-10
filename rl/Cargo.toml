@@ -1,0 +1,12 @@
+[package]
+name = "push-rl"
+version.workspace = true
+edition.workspace = true
+repository.workspace = true
+publish.workspace = true
+description = "CPU-based PPO, SAC and neural network primitives"
+
+[dependencies]
+serde.workspace = true
+serde_json.workspace = true
+rayon.workspace = true

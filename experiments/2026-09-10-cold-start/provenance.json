@@ -1,0 +1,17 @@
+{
+  "source": "Rust subdirectory snapshot from two-joint-push",
+  "source_base_commit": "f1ef911",
+  "includes_uncommitted_experiment_features": true,
+  "files": [
+    {
+      "path": "checkpoints/bc20-seed1.json",
+      "bytes": 170206,
+      "sha256": "d973f947262612db3efeb0dc16528b9f17824e2f75497e9af690ca2a39921099"
+    },
+    {
+      "path": "checkpoints/ppo-1000.json",
+      "bytes": 133520,
+      "sha256": "c496e689992417c15a8d8a288519d90fd454d7b8c8e2fc9c77d55ca920e7d87d"
+    }
+  ]
+}

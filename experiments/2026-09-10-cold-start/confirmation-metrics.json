@@ -1,0 +1,36 @@
+[
+  {
+    "source_file": "eval-coldstart-bc20-seed1-1000.json",
+    "source_sha256": "4ff353a90c16282b547ec0883d41714f17846ac2573c7d8b8faa6e082896c364",
+    "algorithm": "ppo",
+    "observation_dim": 16,
+    "first_seed": 80000,
+    "last_seed": 80999,
+    "successes": 820,
+    "metrics": {
+      "episodes": 1000,
+      "mean_final_distance": 0.0725211352109909,
+      "mean_min_distance": 0.039218999445438385,
+      "mean_return": 130.0039825439453,
+      "mean_steps": 35.09700012207031,
+      "success_rate": 0.8199999928474426
+    }
+  },
+  {
+    "source_file": "eval-ppo1000-1000.json",
+    "source_sha256": "b24d48fde4af0bc4416ca006d56b259e4f5b49554276c8ee9dba73d38debda5b",
+    "algorithm": "ppo",
+    "observation_dim": 16,
+    "first_seed": 80000,
+    "last_seed": 80999,
+    "successes": 815,
+    "metrics": {
+      "episodes": 1000,
+      "mean_final_distance": 0.07613106071949005,
+      "mean_min_distance": 0.039209600538015366,
+      "mean_return": 129.1793212890625,
+      "mean_steps": 35.29100036621094,
+      "success_rate": 0.8149999976158142
+    }
+  }
+]
